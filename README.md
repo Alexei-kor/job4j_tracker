@@ -1,1 +1,3 @@
-[![Build Status](https://app.travis-ci.com/gitForOther/job4j_tracker.svg?branch=master)](https://app.travis-ci.com/gitForOther/job4j_tracker)
+# job4j_tracker
+
+https://github.com/gitForOther/job4j_tracker/commit/68d6e69fa4d55337acb369619f630f6f015b7feb
