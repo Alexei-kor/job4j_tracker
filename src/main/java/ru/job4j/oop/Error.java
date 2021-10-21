@@ -16,7 +16,8 @@ public class Error {
     }
 
     public void printInfo() {
-        System.out.println("Описание: " + message + " / Активность: " + active + " / Статус: " + status);
+        System.out.println("Описание: " + message
+                + " / Активность: " + active + " / Статус: " + status);
     }
 
     public static void main(String[] args) {
