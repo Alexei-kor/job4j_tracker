@@ -27,5 +27,4 @@ public class Error {
         Error error2 = new Error(true, 2, "Ошибка при вызове команды 1");
         error2.printInfo();
     }
-
 }
