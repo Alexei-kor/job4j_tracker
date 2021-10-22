@@ -11,6 +11,8 @@ public class College {
         student.setGroup("Первая");
         student.setDate(LocalDate.now());
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-        System.out.println("ФИО: " + student.getFio() + "\nГруппа: " + student.getGroup() + "\nДата зачисления: " + student.getDate().format(dateTimeFormatter));
+        System.out.println("ФИО: " + student.getFio()
+                + "\nГруппа: " + student.getGroup()
+                + "\nДата зачисления: " + student.getDate().format(dateTimeFormatter));
     }
 }
