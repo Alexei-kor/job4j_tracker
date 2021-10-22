@@ -6,6 +6,14 @@ public class Computer {
     private int ssd;
     private String cpu;
 
+    public Computer() {
+    }
+
+    public Computer(int ssd, String cpu) {
+        this.ssd = ssd;
+        this.cpu = cpu;
+    }
+
     public Computer(boolean multiMonitor, int ssd, String cpu) {
         this.multiMonitor = multiMonitor;
         this.ssd = ssd;
@@ -13,6 +21,10 @@ public class Computer {
     }
 
     public static void main(String[] args) {
+        Computer first = new Computer();
+        first.printInfo();
+        Computer second = new Computer(500, "AMD");
+        second.printInfo();
         Computer computer = new Computer(true, 500, "Intel Core I7-10700K");
         computer.printInfo();
     }
