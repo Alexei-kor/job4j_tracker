@@ -19,7 +19,7 @@ public class PointTest {
     }
 
     @Test
-    public void when513And834Then36() {
+    public void when513And834Then3Point7() {
 
         Point one = new Point(5, 1, 3);
         Point two = new Point(8, 3, 4);
