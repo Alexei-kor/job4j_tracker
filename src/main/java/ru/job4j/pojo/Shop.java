@@ -12,6 +12,9 @@ public class Shop {
                 System.out.println(product.getName());
             }
         }
+        Product one = new Product("Milk", 10);
+        Product two = new Product("Milk", 10);
+        System.out.println(one.equals(two));
     }
 
     public static int indexOfNull(Product[] products) {
