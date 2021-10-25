@@ -32,8 +32,7 @@ public class StartUI {
             } else if (select == 2) {
                 System.out.println("=== Edit item ===");
                 System.out.println("Введите идентификатор заявки: ");
-                String idString = scanner.nextLine();
-                int id = Integer.parseInt(idString);
+                int id = Integer.parseInt(scanner.nextLine());
                 System.out.println("Введите новое наименование заявки: ");
                 String newName = scanner.nextLine();
                 Item item = new Item(newName);
