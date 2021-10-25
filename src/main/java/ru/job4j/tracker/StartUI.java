@@ -57,13 +57,14 @@ public class StartUI {
             } else if (select == 4) {
                 System.out.println("=== Find item by id ===");
                 System.out.println("Введите идентификатор заявки: ");
-                String id = scanner.nextLine();
-                Item itemFind = tracker.findById(Integer.parseInt(id));
-                if (itemFind == null) {
+                String idString = scanner.nextLine();
+                int id = Integer.parseInt(idString);
+                Item found = tracker.findById(id);
+                if (found == null) {
                     System.out.println("Не удалось найти заявку. "
                             + "Возможно, неверно указан ID заявки.");
                 } else {
-                    System.out.println(itemFind);
+                    System.out.println(found);
                 }
             } else if (select == 5) {
                 System.out.println("=== Find items by name ===");
