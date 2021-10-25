@@ -64,6 +64,19 @@ public class StartUI {
                 } else {
                     System.out.println(itemFind);
                 }
+            } else if (select == 5) {
+                System.out.println("=== Find items by name ===");
+                System.out.println("Введите наименование заявки: ");
+                String name = scanner.nextLine();
+                Item[] itemFind = tracker.findByName(name);
+                if (itemFind.length == 0) {
+                    System.out.println("Не удалось найти заявку. "
+                            + "Возможно, неверно указано название заявки.");
+                } else {
+                    for (Item item : itemFind) {
+                        System.out.println(item);
+                    }
+                }
             } else if (select != 6) {
                 System.out.println("Пользователь выбрал: " + select);
             } else {
