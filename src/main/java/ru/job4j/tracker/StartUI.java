@@ -42,6 +42,17 @@ public class StartUI {
                     System.out.println("Не удалось выполнить замену. "
                             + "Возможно, неверно указан ID заявки для замены");
                 }
+            } else if (select == 3) {
+                System.out.println("=== Delete item ===");
+                System.out.println("Введите идентификатор заявки: ");
+                String id = scanner.nextLine();
+                boolean rsl = tracker.delete(Integer.parseInt(id));
+                if (rsl) {
+                    System.out.println("Заявка успешно удалена");
+                } else {
+                    System.out.println("Не удалось удалить заявку. "
+                            + "Возможно, неверно указан ID заявки.");
+                }
             } else if (select != 6) {
                 System.out.println("Пользователь выбрал: " + select);
             } else {
