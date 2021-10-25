@@ -18,11 +18,11 @@ public class Bus implements Transport, Vehicle {
 
     @Override
     public void move() {
-
+        System.out.print("ride");
     }
 
     @Override
-    public int tires() {
-        return 0;
+    public int wheels() {
+        return 6;
     }
 }
