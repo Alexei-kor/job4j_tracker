@@ -1,16 +1,14 @@
 package ru.job4j.oop;
 
+import java.util.Date;
+
 public class Doctor extends Profession {
 
     private String skill;
-    private int numberClinic;
 
-    public Doctor() {
-    }
-
-    public Doctor(String skill, int numberClinic) {
+    public Doctor(String name, String surname, String education, Date birthday, String skill) {
+        super(name, surname, education, birthday);
         this.skill = skill;
-        this.numberClinic = numberClinic;
     }
 
     public void heal() {
