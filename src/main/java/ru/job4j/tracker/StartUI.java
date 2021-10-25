@@ -32,11 +32,12 @@ public class StartUI {
             } else if (select == 2) {
                 System.out.println("=== Edit item ===");
                 System.out.println("Введите идентификатор заявки: ");
-                String id = scanner.nextLine();
+                String idString = scanner.nextLine();
+                int id = Integer.parseInt(idString);
                 System.out.println("Введите новое наименование заявки: ");
                 String newName = scanner.nextLine();
-                boolean rsl = tracker.replace(Integer.parseInt(id), new Item(newName));
-                if (rsl) {
+                Item item = new Item(newName);
+                if (tracker.replace(id, item)) {
                     System.out.println("Замена выполнена успешно");
                 } else {
                     System.out.println("Не удалось выполнить замену. "
