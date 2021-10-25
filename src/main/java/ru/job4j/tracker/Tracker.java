@@ -64,11 +64,9 @@ public class Tracker {
         if (indexFind == -1) {
             return false;
         }
-        items[indexFind] = null;
-        if (size > 1) {
-            System.arraycopy(items, indexFind + 1, items, indexFind, size - indexFind - 1);
-        }
-        size -= 1;
+        System.arraycopy(items, indexFind + 1, items, indexFind, size - indexFind - 1);
+        items[size - 1] = null;
+        size--;
         return true;
     }
 }
