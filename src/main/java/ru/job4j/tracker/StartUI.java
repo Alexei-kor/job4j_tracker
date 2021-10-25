@@ -70,12 +70,11 @@ public class StartUI {
                 System.out.println("=== Find items by name ===");
                 System.out.println("Введите наименование заявки: ");
                 String name = scanner.nextLine();
-                Item[] itemFind = tracker.findByName(name);
-                if (itemFind.length == 0) {
-                    System.out.println("Не удалось найти заявку. "
-                            + "Возможно, неверно указано название заявки.");
+                Item[] found = tracker.findByName(name);
+                if (found.length == 0) {
+                    System.out.println("Заявки с данным именем не найдены");
                 } else {
-                    for (Item item : itemFind) {
+                    for (Item item : found) {
                         System.out.println(item);
                     }
                 }
