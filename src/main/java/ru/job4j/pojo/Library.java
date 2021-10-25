@@ -33,7 +33,7 @@ public class Library {
         }
         for (int index = 0; index < books.length; index++) {
             Book currentBook = books[index];
-            if (currentBook.getName().equals("CleanCode")) {
+            if ("CleanCode".equals(currentBook.getName())) {
                 System.out.println("Name: " + currentBook.getName()
                         + ", count: " + currentBook.getCountSheets());
             }
