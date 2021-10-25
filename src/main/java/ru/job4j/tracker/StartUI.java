@@ -55,8 +55,7 @@ public class StartUI {
             } else if (select == 4) {
                 System.out.println("=== Find item by id ===");
                 System.out.println("Введите идентификатор заявки: ");
-                String idString = scanner.nextLine();
-                int id = Integer.parseInt(idString);
+                int id = Integer.parseInt(scanner.nextLine());
                 Item found = tracker.findById(id);
                 if (found == null) {
                     System.out.println("Не удалось найти заявку. "
