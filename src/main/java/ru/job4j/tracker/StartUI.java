@@ -46,9 +46,9 @@ public class StartUI {
             } else if (select == 3) {
                 System.out.println("=== Delete item ===");
                 System.out.println("Введите идентификатор заявки: ");
-                String id = scanner.nextLine();
-                boolean rsl = tracker.delete(Integer.parseInt(id));
-                if (rsl) {
+                String idString = scanner.nextLine();
+                int id = Integer.parseInt(idString);
+                if (tracker.delete(id)) {
                     System.out.println("Заявка успешно удалена");
                 } else {
                     System.out.println("Не удалось удалить заявку. "
