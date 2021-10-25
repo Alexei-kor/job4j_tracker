@@ -53,6 +53,17 @@ public class StartUI {
                     System.out.println("Не удалось удалить заявку. "
                             + "Возможно, неверно указан ID заявки.");
                 }
+            } else if (select == 4) {
+                System.out.println("=== Find item by id ===");
+                System.out.println("Введите идентификатор заявки: ");
+                String id = scanner.nextLine();
+                Item itemFind = tracker.findById(Integer.parseInt(id));
+                if (itemFind == null) {
+                    System.out.println("Не удалось найти заявку. "
+                            + "Возможно, неверно указан ID заявки.");
+                } else {
+                    System.out.println(itemFind);
+                }
             } else if (select != 6) {
                 System.out.println("Пользователь выбрал: " + select);
             } else {
