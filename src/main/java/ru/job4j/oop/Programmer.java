@@ -6,7 +6,12 @@ public class Programmer extends Engineer {
 
     private String language;
 
-    public Programmer(String name, String surname, String education, Date birthday, String unit, String language) {
+    public Programmer(String name,
+                      String surname,
+                      String education,
+                      Date birthday,
+                      String unit,
+                      String language) {
         super(name, surname, education, birthday, unit);
         this.language = language;
     }

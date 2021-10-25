@@ -6,7 +6,12 @@ public class Builder extends Engineer {
 
     private boolean superSpec;
 
-    public Builder(String name, String surname, String education, Date birthday, String unit, boolean superSpec) {
+    public Builder(String name,
+                   String surname,
+                   String education,
+                   Date birthday,
+                   String unit,
+                   boolean superSpec) {
         super(name, surname, education, birthday, unit);
         this.superSpec = superSpec;
     }
