@@ -94,4 +94,111 @@ public class StartUITest {
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
+
+    @Test
+    public void whenEditItemTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        String replaceName = "New Test Name";
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
+        );
+        UserAction[] actions = new UserAction[]{
+                new EditItem(out),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu:" + ln
+                        + "0. Edit item" + ln
+                        + "1. Exit" + ln
+                        + "=== Edit item ===" + ln
+                        + "Замена выполнена успешно" + ln
+                        + "Menu:" + ln
+                        + "0. Edit item" + ln
+                        + "1. Exit" + ln
+        ));
+    }
+
+    @Test
+    public void whenShowAllTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        Input in = new StubInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = new UserAction[]{
+                new ShowAllItem(out),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu:" + ln
+                        + "0. Show all items" + ln
+                        + "1. Exit" + ln
+                        + "=== Show all items ===" + ln
+                        + one.toString() + ln
+                        + "Menu:" + ln
+                        + "0. Show all items" + ln
+                        + "1. Exit" + ln
+        ));
+    }
+
+    @Test
+    public void whenFindByIdTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(one.getId()), "1"}
+        );
+        UserAction[] actions = new UserAction[]{
+                new FindById(out),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu:" + ln
+                        + "0. Find item by id" + ln
+                        + "1. Exit" + ln
+                        + "=== Find item by id ===" + ln
+                        + one.toString() + ln
+                        + "Menu:" + ln
+                        + "0. Find item by id" + ln
+                        + "1. Exit" + ln
+        ));
+    }
+
+    @Test
+    public void whenFindByNameTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        Item two = tracker.add(new Item("test1"));
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(one.getName()), "1"}
+        );
+        UserAction[] actions = new UserAction[]{
+                new FindByName(out),
+                new Exit()
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu:" + ln
+                        + "0. Find items by name" + ln
+                        + "1. Exit" + ln
+                        + "=== Find items by name ===" + ln
+                        + one.toString() + ln
+                        + two.toString() + ln
+                        + "Menu:" + ln
+                        + "0. Find items by name" + ln
+                        + "1. Exit" + ln
+        ));
+    }
 }

@@ -14,14 +14,14 @@ public class FindByName implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Find items by name ===");
+        out.println("=== Find items by name ===");
         String name = input.askStr("Введите наименование заявки: ");
         Item[] found = tracker.findByName(name);
         if (found.length == 0) {
-            System.out.println("Заявки с данным именем не найдены");
+            out.println("Заявки с данным именем не найдены");
         } else {
             for (Item item : found) {
-                System.out.println(item);
+                out.println(item);
             }
         }
         return true;
