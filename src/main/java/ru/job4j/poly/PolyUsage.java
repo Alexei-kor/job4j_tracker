@@ -9,7 +9,7 @@ public class PolyUsage {
         for (Vehicle vehicle : array) {
             System.out.print(vehicle.getClass().getSimpleName() + " двигается так: ");
             vehicle.move();
-            System.out.println("\n"
+            System.out.println(System.lineSeparator()
                     + vehicle.getClass().getSimpleName()
                     + " имеет : "
                     + vehicle.wheels()
