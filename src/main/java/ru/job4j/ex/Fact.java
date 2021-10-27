@@ -8,7 +8,7 @@ public class Fact {
     public int calc(int n) {
         int rsl = 1;
         if (n < 0) {
-            throw new IllegalArgumentException("Параметр всегда должен быть положительным числом");
+            throw new IllegalArgumentException("Параметр не может быть отрицательным числом");
         }
         for (int index = 1; index <= n; index++) {
             rsl *= index;
