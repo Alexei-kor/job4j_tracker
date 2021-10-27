@@ -15,10 +15,24 @@ public class FindEl {
     }
 
     public static void main(String[] args) {
-        try {
-            int found = FindEl.indexOf(new String[]{"раз", "два", "три"}, "четыре");
-        } catch (ElementNotFoundException e) {
-            e.printStackTrace();
+        process(new String[]{"Раз", "Два", "Три"}, "Два", new String[]{"Плохое слово"});
+    }
+
+    public static boolean sent(String value, String[] abuses) throws ElementNotFoundException {
+        if (FindEl.indexOf(abuses, value) != -1) {
+            throw new ElementAbuseException("Используются запрещенные слова");
+        } else {
+            return true;
         }
+    }
+
+    public static void process(String[] values, String key, String[] abuses) {
+        try {
+            if (indexOf(values, key) != -1) {
+                sent(key, abuses);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
     }
 }
