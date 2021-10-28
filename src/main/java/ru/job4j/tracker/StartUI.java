@@ -8,7 +8,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, Tracker tracker, UserAction[] userActions) {
+    public void init(Input input, TaskTracker tracker, UserAction[] userActions) {
         boolean run = true;
         while (run) {
             showMenu(userActions);
@@ -32,7 +32,7 @@ public class StartUI {
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
-        Tracker tracker = new Tracker();
+        TaskTracker tracker = SingleTracker.getInstance();
         UserAction[] userActions = {
                 new CreateItem(output),
                 new ShowAllItem(output),

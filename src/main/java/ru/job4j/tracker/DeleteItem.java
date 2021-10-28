@@ -13,15 +13,19 @@ public class DeleteItem implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, TaskTracker tracker) {
         out.println("=== Delete item ===");
-        int id = input.askInt("Введите идентификатор заявки: ");
-        if (tracker.delete(id)) {
+        boolean rsl = true;
+        do {
+            int id = input.askInt("Введите идентификатор заявки: ");
+            if (!tracker.delete(id)) {
+                out.println("Не удалось удалить заявку. "
+                        + "Возможно, неверно указан ID заявки.");
+                continue;
+            }
             out.println("Заявка успешно удалена");
-        } else {
-            out.println("Не удалось удалить заявку. "
-                    + "Возможно, неверно указан ID заявки.");
-        }
+            rsl = false;
+            } while (rsl);
         return true;
     }
 }

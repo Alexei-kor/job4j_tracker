@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.TreeSet;
+
 public class CreateItem implements UserAction {
     private final Output out;
 
@@ -13,7 +15,7 @@ public class CreateItem implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, TaskTracker tracker) {
         out.println("=== Create a new Item ===");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);

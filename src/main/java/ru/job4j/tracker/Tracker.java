@@ -2,26 +2,30 @@ package ru.job4j.tracker;
 
 import java.util.Arrays;
 
-public class Tracker {
+public class Tracker implements TaskTracker {
     private final Item[] items = new Item[100];
     private int ids = 1;
     private int size = 0;
 
+    @Override
     public Item add(Item item) {
         item.setId(ids++);
         items[size++] = item;
         return item;
     }
 
+    @Override
     public Item[] findAll() {
         return Arrays.copyOf(items, size);
     }
 
+    @Override
     public Item findById(int id) {
         int indexFind = indexOf(id);
         return indexFind == -1 ? null : items[indexFind];
     }
 
+    @Override
     public Item[] findByName(String key) {
         Item[] result = new Item[items.length];
         int count = 0;
@@ -49,6 +53,7 @@ public class Tracker {
         return rsl;
     }
 
+    @Override
     public boolean replace(int id, Item item) {
         int indexFind = indexOf(id);
         if (indexFind == -1) {
@@ -59,6 +64,7 @@ public class Tracker {
         return true;
     }
 
+    @Override
     public boolean delete(int id) {
         int indexFind = indexOf(id);
         if (indexFind == -1) {

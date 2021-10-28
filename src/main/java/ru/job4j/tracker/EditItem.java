@@ -14,7 +14,7 @@ public class EditItem implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, TaskTracker tracker) {
         out.println("=== Edit item ===");
         int id = input.askInt("Введите идентификатор заявки: ");
         String newName = input.askStr("Введите новое наименование заявки: ");

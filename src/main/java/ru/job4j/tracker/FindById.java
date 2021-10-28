@@ -13,7 +13,7 @@ public class FindById implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, TaskTracker tracker) {
         out.println("=== Find item by id ===");
         int id = input.askInt("Введите идентификатор заявки: ");
         Item found = tracker.findById(id);
