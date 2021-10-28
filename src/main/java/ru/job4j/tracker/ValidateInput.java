@@ -33,8 +33,14 @@ public class ValidateInput implements Input {
     private boolean isNumber(String value) {
         boolean rsl = true;
         char[] check = value.toCharArray();
-        for (char num : check) {
-            if (num < 48 || num > 57) {
+        if (check.length == 0) {
+            return false;
+        }
+        for (int i = 0; i < check.length; i++) {
+            if (i == 0 && check[i] < '0' && check[i] == '-') {
+                continue;
+            }
+            if (check[i] < 48 || check[i] > 57) {
                 rsl = false;
                 break;
             }

@@ -35,21 +35,23 @@ public class ValidateInputTest {
                 new String[] {"1", "2", "3"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int[] actual = new int[]{1, 2, 3};
-        for (int i = 0; i < 2; i++) {
-            actual[i] = input.askInt("Enter menu:");
-        }
+        int[] actual = new int[3];
+        actual[0] = input.askInt("Enter menu:");
+        actual[1] = input.askInt("Enter menu:");
+        actual[2] = input.askInt("Enter menu:");
+
         assertThat(actual, is(new int[]{1, 2, 3}));
     }
 
-    @Test (expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void whenNegativeNumberInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
                 new String[] {"-1"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Enter menu:");
+        int actual = input.askInt("Enter menu:");
+        assertThat(actual, is(-1));
     }
 
 }
