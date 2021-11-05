@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 public class FindByName implements UserAction {
     private final Output out;
 
@@ -16,8 +18,8 @@ public class FindByName implements UserAction {
     public boolean execute(Input input, TaskTracker tracker) {
         out.println("=== Find items by name ===");
         String name = input.askStr("Введите наименование заявки: ");
-        Item[] found = tracker.findByName(name);
-        if (found.length == 0) {
+        List<Item> found = tracker.findByName(name);
+        if (found.size() == 0) {
             out.println("Заявки с данным именем не найдены");
         } else {
             for (Item item : found) {
