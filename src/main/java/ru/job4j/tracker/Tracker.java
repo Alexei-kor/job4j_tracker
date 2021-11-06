@@ -17,7 +17,7 @@ public class Tracker implements TaskTracker {
 
     @Override
     public List<Item> findAll() {
-        return items;
+        return List.copyOf(items);
     }
 
     @Override
@@ -30,8 +30,7 @@ public class Tracker implements TaskTracker {
     public List<Item> findByName(String key) {
         List<Item> result = new ArrayList<Item>();
         for (Item item : items) {
-            if (item != null
-                    && item.getName().equals(key)) {
+            if (item.getName().equals(key)) {
                 result.add(item);
             }
         }
@@ -41,8 +40,7 @@ public class Tracker implements TaskTracker {
     private int indexOf(int id) {
         int rsl = -1;
         for (int index = 0; index < items.size(); index++) {
-            if (items.get(index) != null
-                    && items.get(index).getId() == id) {
+            if (items.get(index).getId() == id) {
                 rsl = index;
                 break;
             }
