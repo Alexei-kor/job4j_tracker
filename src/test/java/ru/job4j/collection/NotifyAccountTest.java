@@ -36,8 +36,8 @@ public class NotifyAccountTest {
         );
         HashSet<Account> expect = new HashSet<>(
                 Arrays.asList(
-                        new Account("123", "Ivan", "four"),
-                        new Account("142", "Stepan", "six")
+                        new Account("123", "Ivan", "one"),
+                        new Account("142", "Stepan", "000001")
                 )
         );
         assertThat(NotifyAccount.sent(accounts), is(expect));
