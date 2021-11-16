@@ -13,29 +13,37 @@ import static org.hamcrest.core.Is.is;
 public class ItemTest {
 
     @Test
-    public void whenSortById() {
+    public void whenSortByNameAsc() {
         int id = 0;
         Item one = new Item("Первая задача");
         one.setId(id);
         id++;
         Item two = new Item("Вторая задача");
         two.setId(id);
-        List<Item> list = Arrays.asList(one, two);
-        Collections.sort(list);
-        assertThat(list.get(0).getId(), is(0));
+        id++;
+        Item three = new Item("Третья задача");
+        three.setId(id);
+        List<Item> expected = Arrays.asList(two, one, three);
+        List<Item> actual = Arrays.asList(one, two, three);
+        Collections.sort(actual, new ItemAscByName());
+        assertEquals(actual, expected);
     }
 
     @Test
-    public void whenSortReverseById() {
+    public void whenSortReverseByNmaneDesc() {
         int id = 0;
         Item one = new Item("Первая задача");
         one.setId(id);
         id++;
         Item two = new Item("Вторая задача");
         two.setId(id);
-        List<Item> list = Arrays.asList(one, two);
-        Collections.sort(list, new SortItem());
-        assertThat(list.get(0).getId(), is(1));
+        id++;
+        Item three = new Item("Третья задача");
+        three.setId(id);
+        List<Item> expected = Arrays.asList(three, one, two);
+        List<Item> actual = Arrays.asList(one, two, three);
+        Collections.sort(actual, new ItemDescByName());
+        assertEquals(actual, expected);
     }
 
 }
