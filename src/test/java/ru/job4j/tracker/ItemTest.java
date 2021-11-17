@@ -14,15 +14,9 @@ public class ItemTest {
 
     @Test
     public void whenSortByNameAsc() {
-        int id = 0;
-        Item one = new Item("Первая задача");
-        one.setId(id);
-        id++;
-        Item two = new Item("Вторая задача");
-        two.setId(id);
-        id++;
-        Item three = new Item("Третья задача");
-        three.setId(id);
+        Item one = new Item(0, "Первая задача");
+        Item two = new Item(1, "Вторая задача");
+        Item three = new Item(2, "Третья задача");
         List<Item> expected = Arrays.asList(two, one, three);
         List<Item> actual = Arrays.asList(one, two, three);
         Collections.sort(actual, new ItemAscByName());
@@ -31,15 +25,9 @@ public class ItemTest {
 
     @Test
     public void whenSortReverseByNmaneDesc() {
-        int id = 0;
-        Item one = new Item("Первая задача");
-        one.setId(id);
-        id++;
-        Item two = new Item("Вторая задача");
-        two.setId(id);
-        id++;
-        Item three = new Item("Третья задача");
-        three.setId(id);
+        Item one = new Item(0, "Первая задача");
+        Item two = new Item(1, "Вторая задача");
+        Item three = new Item(2, "Третья задача");
         List<Item> expected = Arrays.asList(three, one, two);
         List<Item> actual = Arrays.asList(one, two, three);
         Collections.sort(actual, new ItemDescByName());
