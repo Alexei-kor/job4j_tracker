@@ -2,8 +2,19 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Для хранения модели данных о расчетном счете пользователея
+ * @version 1.0
+ * @author Alexei
+ */
 public class Account {
+    /**
+     * Хранение реквизитов расчетного счета пользователя
+     */
     private String requisite;
+    /**
+     * Хранение значения баланса для счета
+     */
     private double balance;
 
     public Account(String requisite, double balance) {

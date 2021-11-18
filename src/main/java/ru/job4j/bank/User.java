@@ -2,8 +2,20 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Для хранения модели данных о расчетном счете пользователея
+ * @version 1.0
+ * @author Alexei
+ */
 public class User {
+    /**
+     * Хранение паспортных данных пользователя
+     */
     private String passport;
+
+    /**
+     * Хранение имени пользователя
+     */
     private String username;
 
     public User(String passport, String username) {
