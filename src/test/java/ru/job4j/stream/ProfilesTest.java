@@ -18,15 +18,22 @@ public class ProfilesTest {
 
         List<Address> addresses = List.of(
                 new Address("Москва", "Ленинский пр-т", 5, 16),
-                new Address("Москва", "Минская ", 5, 16),
-                new Address("Москва", "Новослободская", 5, 16)
+                new Address("Архангельск", "Минская ", 5, 16),
+                new Address("Москва", "Ленинский пр-т", 5, 16),
+                new Address("Дмитров", "Новослободская", 5, 16)
                 );
         List<Profile> profiles = List.of(new Profile("Иванов", addresses.get(0)),
                 new Profile("Петров", addresses.get(1)),
-                new Profile("Сидоров", addresses.get(2))
+                new Profile("Петров", addresses.get(2)),
+                new Profile("Сидоров", addresses.get(3))
         );
         List<Address> actual = Profiles.collect(profiles);
-        Assert.assertThat(actual, is(addresses));
+        List<Address> expected = List.of(
+                new Address("Архангельск", "Минская ", 5, 16),
+                new Address("Дмитров", "Новослободская", 5, 16),
+                new Address("Москва", "Ленинский пр-т", 5, 16)
+        );
+        Assert.assertThat(actual, is(expected));
     }
 
 }
