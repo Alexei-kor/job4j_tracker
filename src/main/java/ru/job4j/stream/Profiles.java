@@ -10,8 +10,8 @@ public class Profiles {
     public static List<Address> collect(List<Profile> profiles) {
         return profiles.stream()
                 .map((prof) -> prof.getAddress())
-                .distinct()
                 .sorted(new SortAdressAsc())
+                .distinct()
                 .collect(Collectors.toList());
     }
 }
