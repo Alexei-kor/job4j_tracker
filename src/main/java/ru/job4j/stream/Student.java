@@ -28,13 +28,12 @@ public class Student {
             return false;
         }
         Student student = (Student) o;
-        return score == student.score
-                && Objects.equals(surname, student.surname);
+        return Objects.equals(surname, student.surname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(score, surname);
+        return Objects.hash(surname);
     }
 
     @Override
