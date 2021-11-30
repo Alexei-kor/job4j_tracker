@@ -21,10 +21,11 @@ public class OrderConvertTest {
 
     @Test
     public void whenDuplicateOrder() {
-        List<Order> orders = new ArrayList<>();
-        orders.add(new Order("3sfe", "Dress"));
-        orders.add(new Order("abcd", "Pants"));
-        orders.add(new Order("3sfe", "Dress"));
+        List<Order> orders = List.of(
+                new Order("3sfe", "Dress"),
+                new Order("abcd", "Pants"),
+                new Order("3sfe", "Dress")
+        );
         HashMap<String, Order> map = OrderConvert.process(orders);
         assertThat(map.size(), is(2));
     }

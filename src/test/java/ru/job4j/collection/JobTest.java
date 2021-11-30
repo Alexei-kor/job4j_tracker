@@ -21,10 +21,7 @@ public class JobTest {
         actual.add(two);
         actual.add(three);
         actual.sort(new JobSortByNameAsc());
-        List<Job> expected = new ArrayList<>();
-        expected.add(three);
-        expected.add(one);
-        expected.add(two);
+        List<Job> expected = List.of(three, one, two);
         Assert.assertEquals(actual, expected);
     }
 
@@ -38,10 +35,7 @@ public class JobTest {
         actual.add(two);
         actual.add(three);
         actual.sort(new JobSortByNameDesc());
-        List<Job> expected = new ArrayList<>();
-        expected.add(two);
-        expected.add(one);
-        expected.add(three);
+        List<Job> expected = List.of(two, one, three);
         Assert.assertEquals(actual, expected);
     }
 
@@ -55,10 +49,7 @@ public class JobTest {
         actual.add(two);
         actual.add(three);
         actual.sort(new JobSortByPriorityDesc());
-        List<Job> expected = new ArrayList<>();
-        expected.add(three);
-        expected.add(two);
-        expected.add(one);
+        List<Job> expected = List.of(three, two, one);
         Assert.assertEquals(actual, expected);
     }
 
@@ -72,10 +63,7 @@ public class JobTest {
         actual.add(two);
         actual.add(three);
         actual.sort(new JobSortByPriorityAsc());
-        List<Job> expected = new ArrayList<>();
-        expected.add(one);
-        expected.add(two);
-        expected.add(three);
+        List<Job> expected = List.of(one, two, three);
         Assert.assertEquals(actual, expected);
     }
 
@@ -89,10 +77,7 @@ public class JobTest {
         actual.add(two);
         actual.add(three);
         actual.sort(new JobSortByPriorityAsc().thenComparing(new JobSortByNameAsc()));
-        List<Job> expected = new ArrayList<>();
-        expected.add(one);
-        expected.add(three);
-        expected.add(two);
+        List<Job> expected = List.of(one, three, two);
         Assert.assertEquals(actual, expected);
     }
 }
