@@ -8,6 +8,6 @@ import java.util.stream.Collectors;
 public class ConvertListToMap {
     public static Map<String, Student> convert(List<Student> students) {
         return students.stream()
-                .collect(Collectors.toMap(Student::getSurname, a -> a, (a, b) -> a));
+                .collect(Collectors.toMap(Student::getSurname, a -> a, (a, b) -> b));
     }
 }
