@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.sql.SQLException;
+
 public class EditItem implements UserAction {
 
     private final Output out;
@@ -14,7 +16,7 @@ public class EditItem implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, TaskTracker tracker) {
+    public boolean execute(Input input, Store tracker) throws SQLException {
         out.println("=== Edit item ===");
         int id = input.askInt("Введите идентификатор заявки: ");
         String newName = input.askStr("Введите новое наименование заявки: ");

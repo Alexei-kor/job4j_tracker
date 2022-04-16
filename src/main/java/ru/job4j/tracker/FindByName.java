@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class FindByName implements UserAction {
@@ -15,7 +16,7 @@ public class FindByName implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, TaskTracker tracker) {
+    public boolean execute(Input input, Store tracker) throws SQLException {
         out.println("=== Find items by name ===");
         String name = input.askStr("Введите наименование заявки: ");
         List<Item> found = tracker.findByName(name);

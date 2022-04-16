@@ -7,7 +7,7 @@ public class Exit implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, TaskTracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         return false;
     }
 }

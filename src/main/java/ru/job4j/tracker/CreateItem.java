@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import java.sql.SQLException;
 import java.util.TreeSet;
 
 public class CreateItem implements UserAction {
@@ -15,7 +16,7 @@ public class CreateItem implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, TaskTracker tracker) {
+    public boolean execute(Input input, Store tracker) throws SQLException {
         out.println("=== Create a new Item ===");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);

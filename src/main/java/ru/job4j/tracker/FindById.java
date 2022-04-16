@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.sql.SQLException;
+
 public class FindById implements UserAction {
     private final Output out;
 
@@ -13,7 +15,7 @@ public class FindById implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, TaskTracker tracker) {
+    public boolean execute(Input input, Store tracker) throws SQLException {
         out.println("=== Find item by id ===");
         int id = input.askInt("Введите идентификатор заявки: ");
         Item found = tracker.findById(id);

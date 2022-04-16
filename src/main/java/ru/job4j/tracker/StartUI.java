@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, TaskTracker tracker, List<UserAction> userActions) {
+    public void init(Input input, Store tracker, List<UserAction> userActions) throws SQLException {
         boolean run = true;
         while (run) {
             showMenu(userActions);
@@ -32,18 +33,20 @@ public class StartUI {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
-        TaskTracker tracker = SingleTracker.getInstance();
-        List<UserAction> userActions = new ArrayList<UserAction>();
-        userActions.add(new CreateItem(output));
-        userActions.add(new ShowAllItem(output));
-        userActions.add(new EditItem(output));
-        userActions.add(new DeleteItem(output));
-        userActions.add(new FindById(output));
-        userActions.add(new FindByName(output));
-        userActions.add(new Exit());
-        new StartUI(output).init(input, tracker, userActions);
+        try (SqlTracker tracker = new SqlTracker()) {
+            tracker.init();
+            List<UserAction> userActions = new ArrayList<UserAction>();
+            userActions.add(new CreateItem(output));
+            userActions.add(new ShowAllItem(output));
+            userActions.add(new EditItem(output));
+            userActions.add(new DeleteItem(output));
+            userActions.add(new FindById(output));
+            userActions.add(new FindByName(output));
+            userActions.add(new Exit());
+            new StartUI(output).init(input, tracker, userActions);
+        }
     }
 }
