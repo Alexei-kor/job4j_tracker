@@ -11,9 +11,9 @@ import java.util.Properties;
 
 public class SqlTracker implements Store, AutoCloseable {
 
-    private Connection cn;
-
     private static final Logger LOG = LoggerFactory.getLogger(SqlTracker.class.getName());
+
+    private Connection cn;
 
     public SqlTracker() {
     }
