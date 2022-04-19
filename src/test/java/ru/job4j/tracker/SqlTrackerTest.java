@@ -52,12 +52,52 @@ public class SqlTrackerTest {
     }
 
     @Test
-    public void whenSaveItemAndFindByGeneratedIdThenMustBeTheSame() throws SQLException {
+    public void whenSaveItemAndFindByNameThenMustBeTheSame() throws SQLException {
         SqlTracker tracker = new SqlTracker(connection);
-        Item item = new Item("item");
+        Item item = new Item("item2");
         tracker.add(item);
         List<Item> expected = Arrays.asList(item);
         assertThat(tracker.findByName(item.getName()), is(expected));
+    }
+
+    @Test
+    public void whenSaveItemAndFindByGeneratedIdThenMustBeTheSame() throws SQLException {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item2");
+        tracker.add(item);
+        assertThat(tracker.findById(item.getId()), is(item));
+    }
+
+    @Test
+    public void whenSaveItemAndReplaceNameAndFindByNewNameThenMustBeTheSame() throws SQLException {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item");
+        tracker.add(item);
+        item.setName("ItemNew");
+        tracker.replace(item.getId(), item);
+        List<Item> expected = Arrays.asList(item);
+        assertThat(tracker.findByName(item.getName()), is(expected));
+    }
+
+    @Test
+    public void whenSave2ItemAndSelectAllThenMustBe2Items() throws SQLException {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item1 = new Item("item1");
+        Item item2 = new Item("item2");
+        tracker.add(item1);
+        tracker.add(item2);
+        assertThat(tracker.findAll().size(), is(2));
+    }
+
+    @Test
+    public void whenSaveTwoItemAndDeleteOneThenMustBeOneSame() throws SQLException {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item1 = new Item("item1");
+        Item item2 = new Item("item2");
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.delete(item1.getId());
+        assertThat(tracker.findById(item2.getId()), is(item2));
     }
 
 }
