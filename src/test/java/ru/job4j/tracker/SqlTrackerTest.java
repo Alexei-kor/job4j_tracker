@@ -72,6 +72,7 @@ public class SqlTrackerTest {
     public void whenSaveItemAndReplaceNameAndFindByNewNameThenMustBeTheSame() throws SQLException {
         SqlTracker tracker = new SqlTracker(connection);
         Item item = tracker.add(new Item("item"));
+        Item item2 = tracker.add(new Item("item2"));
         item.setName("ItemNew");
         tracker.replace(item.getId(), item);
         assertThat(tracker.findById(item.getId()).getName(), is(item.getName()));
