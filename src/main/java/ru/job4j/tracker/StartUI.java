@@ -36,8 +36,7 @@ public class StartUI {
     public static void main(String[] args) throws Exception {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
-        try (SqlTracker tracker = new SqlTracker()) {
-            tracker.init();
+        try (MemTracker tracker = new MemTracker()) {
             List<UserAction> userActions = new ArrayList<UserAction>();
             userActions.add(new CreateItem(output));
             userActions.add(new ShowAllItem(output));

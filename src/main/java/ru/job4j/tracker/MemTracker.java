@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MemTracker implements TaskTracker, Store {
+public class MemTracker implements TaskTracker, Store, AutoCloseable {
     private final List<Item> items = new ArrayList<Item>();
     private int ids = 1;
 
@@ -67,5 +67,10 @@ public class MemTracker implements TaskTracker, Store {
         }
         items.remove(indexFind);
         return true;
+    }
+
+    @Override
+    public void close() throws Exception {
+
     }
 }

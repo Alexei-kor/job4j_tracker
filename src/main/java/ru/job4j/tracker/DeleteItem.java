@@ -25,7 +25,7 @@ public class DeleteItem implements UserAction {
                         + "Возможно, неверно указан ID заявки.");
                 continue;
             }
-            out.println("Заявка успешно удалена");
+            out.println(String.format("Заявка %s успешно удалена", id));
             rsl = false;
             } while (rsl);
         return true;
